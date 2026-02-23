@@ -29,6 +29,7 @@ blockchain-lab/
 │   ├── DEPENDENCY.md                # Dependency setup guide (Windows + WSL/Linux)
 │   └── EXTENSION.md                 # VS Code extension list for Web3 Development
 ├── .gitignore                        # Web3-specific gitignore
+├── CONTRIBUTING.md                   # Contribution guidelines, branch & commit conventions
 ├── LICENSE                           # MIT License
 └── README.md                         # This file
 ```
@@ -91,8 +92,8 @@ Syllabus coverage is documented in **[docs/BLOCKCHAIN_LAB_SYLLABUS.md](docs/BLOC
 
 ## Contributing
 
-This is a personal academic repository. External contributions are not expected, but feel free to
-fork for your own coursework.
+Please read **[CONTRIBUTING.md](CONTRIBUTING.md)** for branch naming conventions, commit message
+nomenclature, and pull request guidelines before contributing.
 
 ---
 
