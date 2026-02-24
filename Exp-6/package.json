@@ -1,0 +1,41 @@
+{
+  "name": "exp-6",
+  "version": "1.0.0",
+  "description": "Mini Project — Full-fledged DApp using Ethereum (Foundry + Hardhat 3) — LO6",
+  "main": "index.js",
+  "scripts": {
+    "compile:hh": "npx hardhat compile",
+    "compile:forge": "forge build",
+    "test:hh": "npx hardhat test",
+    "test:forge": "forge test -vvv",
+    "test:forge:watch": "forge test -vvv --watch",
+    "coverage:forge": "forge coverage",
+    "snapshot": "forge snapshot",
+    "node:hh": "npx hardhat node",
+    "node:anvil": "anvil",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network hardhat",
+    "deploy:anvil": "npx hardhat run scripts/deploy.js --network anvil",
+    "deploy:sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
+    "deploy:forge:anvil": "forge script script/Deploy.s.sol --rpc-url http://127.0.0.1:8545 --broadcast",
+    "deploy:forge:sepolia": "forge script script/Deploy.s.sol --rpc-url sepolia --broadcast --verify",
+    "verify:sepolia": "npx hardhat verify --network sepolia",
+    "clean": "npx hardhat clean && forge clean",
+    "format": "forge fmt && npx prettier --write 'scripts/**/*.js' 'test/**/*.js'"
+  },
+  "keywords": [
+    "blockchain",
+    "dapp",
+    "ethereum",
+    "foundry",
+    "hardhat",
+    "solidity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^17.3.1",
+    "hardhat": "^3.1.9",
+    "prettier": "^3.8.1",
+    "prettier-plugin-solidity": "^2.2.1"
+  }
+}
