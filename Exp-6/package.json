@@ -16,8 +16,8 @@
     "deploy:local": "npx hardhat run scripts/deploy.js --network hardhat",
     "deploy:anvil": "npx hardhat run scripts/deploy.js --network anvil",
     "deploy:sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
-    "deploy:forge:anvil": "forge script script/Deploy.s.sol --rpc-url http://127.0.0.1:8545 --broadcast",
-    "deploy:forge:sepolia": "forge script script/Deploy.s.sol --rpc-url sepolia --broadcast --verify",
+    "deploy:forge:anvil": "forge script script/Counter.s.sol --rpc-url http://127.0.0.1:8545 --broadcast",
+    "deploy:forge:sepolia": "forge script script/Counter.s.sol --rpc-url sepolia --broadcast --verify",
     "verify:sepolia": "npx hardhat verify --network sepolia",
     "clean": "npx hardhat clean && forge clean",
     "format": "forge fmt && npx prettier --write 'scripts/**/*.js' 'test/**/*.js'"

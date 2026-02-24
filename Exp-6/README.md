@@ -77,9 +77,9 @@ cd Exp-6/
 # Install npm packages (Hardhat 3 + helpers)
 npm install
 
-# Foundry libraries are git submodules (already in lib/)
-# If re-cloning the repo, run:
-# forge install OpenZeppelin/openzeppelin-contracts --no-git
+# Install Foundry dependencies (forge-std and OpenZeppelin)
+forge install foundry-rs/forge-std --no-commit
+forge install OpenZeppelin/openzeppelin-contracts --no-commit
 ```
 
 ### Environment
