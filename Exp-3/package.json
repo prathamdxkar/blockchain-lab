@@ -1,0 +1,36 @@
+{
+  "name": "exp-3",
+  "version": "1.0.0",
+  "description": "Exp-3: Deployment and Publishing Smart Contracts on Ethereum Test Network (LO3)",
+  "private": true,
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "node": "npx hardhat node",
+    "deploy:local": "npx hardhat ignition deploy ./ignition/modules/Deploy.js --network localhost",
+    "deploy:ganache": "npx hardhat ignition deploy ./ignition/modules/Deploy.js --network ganache",
+    "deploy:sepolia": "npx hardhat ignition deploy ./ignition/modules/Deploy.js --network sepolia",
+    "verify:sepolia": "npx hardhat verify --network sepolia",
+    "truffle:compile": "truffle compile",
+    "truffle:migrate": "truffle migrate --network development",
+    "truffle:test": "truffle test",
+    "format": "prettier --write \"**/*.{sol,js,json}\""
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "solidity",
+    "sepolia",
+    "testnet",
+    "hardhat"
+  ],
+  "author": "Pratham Diwadkar",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^17.3.1",
+    "hardhat": "^2.28.6",
+    "prettier": "^3.8.1",
+    "prettier-plugin-solidity": "^2.2.1"
+  }
+}
