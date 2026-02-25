@@ -11,14 +11,34 @@ are a classmate, lab partner, or someone forking this for your own coursework.
 
 ## Table of Contents
 
-1. [Code of Conduct](#1-code-of-conduct)
-2. [Branch Strategy & Protection](#2-branch-strategy--protection)
-3. [Commit Message Nomenclature](#3-commit-message-nomenclature)
-4. [Pull Request Guidelines](#4-pull-request-guidelines)
-5. [Experiment File Conventions](#5-experiment-file-conventions)
-6. [Smart Contract & Solidity Standards](#6-smart-contract--solidity-standards)
-7. [Security Guidelines](#7-security-guidelines)
-8. [Getting Help](#8-getting-help)
+- [Contributing to Blockchain Lab](#contributing-to-blockchain-lab)
+  - [Table of Contents](#table-of-contents)
+  - [1. Code of Conduct](#1-code-of-conduct)
+  - [2. Branch Strategy \& Protection](#2-branch-strategy--protection)
+    - [Protected Branch — `main`](#protected-branch--main)
+    - [Feature Branch Naming Convention](#feature-branch-naming-convention)
+    - [Creating Your Branch](#creating-your-branch)
+    - [Branch Scope](#branch-scope)
+  - [3. Commit Message Nomenclature](#3-commit-message-nomenclature)
+    - [Types](#types)
+    - [Scopes](#scopes)
+    - [Summary Rules](#summary-rules)
+    - [Examples](#examples)
+    - [Multi-line Commit Body (optional)](#multi-line-commit-body-optional)
+  - [4. Pull Request Guidelines](#4-pull-request-guidelines)
+    - [Before Opening a PR](#before-opening-a-pr)
+    - [PR Title Format](#pr-title-format)
+    - [PR Description Template](#pr-description-template)
+    - [Review Process](#review-process)
+    - [What PRs Are Accepted](#what-prs-are-accepted)
+    - [PR Merging Strategy](#pr-merging-strategy)
+      - [After merging `b-yourname` → `main` (no pending work on branch)](#after-merging-b-yourname--main-no-pending-work-on-branch)
+      - [When `main` has moved ahead and you have pending work on `b-yourname`](#when-main-has-moved-ahead-and-you-have-pending-work-on-b-yourname)
+      - [After a Copilot fix sub-PR merges into `b-yourname`](#after-a-copilot-fix-sub-pr-merges-into-b-yourname)
+  - [5. Experiment File Conventions](#5-experiment-file-conventions)
+  - [6. Smart Contract \& Solidity Standards](#6-smart-contract--solidity-standards)
+  - [7. Security Guidelines](#7-security-guidelines)
+  - [8. Getting Help](#8-getting-help)
 
 ---
 
@@ -56,11 +76,11 @@ b-<yourname>
 
 **Examples:**
 
-| Contributor | Branch Name |
-|-------------|-------------|
-| Pratham Diwadkar (maintainer) | `b-pratham` |
-| Jane Doe | `b-jane` |
-| John Smith | `b-johnsmith` |
+| Contributor                   | Branch Name   |
+| ----------------------------- | ------------- |
+| Pratham Diwadkar (maintainer) | `b-pratham`   |
+| Jane Doe                      | `b-jane`      |
+| John Smith                    | `b-johnsmith` |
 
 Use lowercase letters only. Avoid spaces, underscores, or special characters other than hyphens.
 
@@ -99,34 +119,34 @@ All commit messages **must** follow this structure:
 
 ### Types
 
-| Type | When to Use |
-|------|-------------|
-| `feat` | Adding a new experiment, feature, or significant content |
-| `fix` | Fixing a bug, incorrect code, or broken configuration |
-| `docs` | Documentation-only changes (README, manual, syllabus, guides) |
-| `chore` | Maintenance tasks — `.gitignore`, dependency updates, repo config |
-| `refactor` | Code restructuring with no functional change |
-| `test` | Adding or updating test files for smart contracts |
-| `style` | Formatting, whitespace, comment edits — no logic changes |
-| `exp` | Experiment-specific commit (new `.sol` file, migration, test run) |
-| `config` | Config file changes — `hardhat.config.js`, `truffle-config.js`, etc. |
+| Type       | When to Use                                                          |
+| ---------- | -------------------------------------------------------------------- |
+| `feat`     | Adding a new experiment, feature, or significant content             |
+| `fix`      | Fixing a bug, incorrect code, or broken configuration                |
+| `docs`     | Documentation-only changes (README, manual, syllabus, guides)        |
+| `chore`    | Maintenance tasks — `.gitignore`, dependency updates, repo config    |
+| `refactor` | Code restructuring with no functional change                         |
+| `test`     | Adding or updating test files for smart contracts                    |
+| `style`    | Formatting, whitespace, comment edits — no logic changes             |
+| `exp`      | Experiment-specific commit (new `.sol` file, migration, test run)    |
+| `config`   | Config file changes — `hardhat.config.js`, `truffle-config.js`, etc. |
 
 ### Scopes
 
 Use the scope to identify the area of the codebase being changed:
 
-| Scope | Refers to |
-|-------|-----------|
-| `exp-01` … `exp-10` | Individual lab experiment folders |
-| `docs` | Files inside `docs/` |
-| `root` | Root-level files (README, LICENSE, .gitignore) |
-| `hardhat` | Hardhat-specific config or scripts |
-| `truffle` | Truffle-specific config or migrations |
-| `foundry` | Foundry-specific config or scripts |
-| `remix` | Remix IDE-related files |
-| `contracts` | Solidity smart contract files |
-| `scripts` | Deployment or utility scripts |
-| `tests` | Test files |
+| Scope             | Refers to                                      |
+| ----------------- | ---------------------------------------------- |
+| `exp-1` … `exp-6` | Individual lab experiment folders              |
+| `docs`            | Files inside `docs/`                           |
+| `root`              | Root-level files (README, LICENSE, .gitignore) |
+| `hardhat`           | Hardhat-specific config or scripts             |
+| `truffle`           | Truffle-specific config or migrations          |
+| `foundry`           | Foundry-specific config or scripts             |
+| `remix`             | Remix IDE-related files                        |
+| `contracts`         | Solidity smart contract files                  |
+| `scripts`           | Deployment or utility scripts                  |
+| `tests`             | Test files                                     |
 
 ### Summary Rules
 
@@ -138,12 +158,12 @@ Use the scope to identify the area of the codebase being changed:
 ### Examples
 
 ```
-feat(exp-01): add SimpleStorage contract with Hardhat setup
+feat(exp-1): add SimpleStorage contract with Hardhat setup
 fix(contracts): correct uint overflow in Token.sol transfer function
 docs(docs): update BLOCKCHAIN_LAB_MANUAL.md with experiment 3 steps
 chore(root): update .gitignore to exclude forge broadcast outputs
-exp(exp-04): deploy ERC-20 token to Ganache local network
-test(exp-02): add Mocha test suite for Voting contract
+exp(exp-4): deploy ERC-20 token to Ganache local network
+test(exp-2): add Mocha test suite for Voting contract
 config(hardhat): set solidity version to 0.8.21 in hardhat.config.js
 refactor(contracts): extract reusable modifier to BaseContract.sol
 style(docs): fix markdown table alignment in DEPENDENCY.md
@@ -179,7 +199,7 @@ modifier from OpenZeppelin ReentrancyGuard.
 Follow the same `<type>(<scope>): <summary>` format used for commit messages:
 
 ```
-feat(exp-03): add Voting smart contract with Hardhat tests
+feat(exp-3): add Voting smart contract with Hardhat tests
 docs(docs): update BLOCKCHAIN_LAB_MANUAL.md for experiments 1–5
 fix(contracts): resolve off-by-one error in Token.sol allowance logic
 ```
@@ -229,6 +249,66 @@ This is primarily a personal academic repository. PRs are accepted for:
 - ❌ Bulk-formatting PRs with no substantive change
 - ❌ PRs that include compiled artifacts, `node_modules`, or build outputs
 
+### PR Merging Strategy
+
+This repository uses a **two-strategy merge setup** to maintain linear history on `main` while keeping Copilot sub-PR workflows clean:
+
+| PR Flow                                  | Merge Strategy       |
+| ---------------------------------------- | -------------------- |
+| `b-yourname` → `main`                    | **Squash and Merge** |
+| `copilot/*` → `main`                     | **Squash and Merge** |
+| `copilot/*` → `b-yourname` (fix sub-PRs) | **Merge Commit**     |
+
+---
+
+#### After merging `b-yourname` → `main` (no pending work on branch)
+
+Every time a PR from `b-yourname` is merged into `main`, immediately sync your branch before starting new work:
+
+```bash
+# 1. Fetch latest remote state
+git fetch origin
+
+# 2. Switch to b-yourname
+git checkout b-yourname
+
+# 3. Reset to current main (since no pending work yet)
+git reset --hard origin/main
+
+# 4. Push the synced branch
+git push origin b-yourname --force
+```
+
+#### When `main` has moved ahead and you have pending work on `b-yourname`
+
+If you have new in-progress commits on `b-yourname` and `main` has moved ahead (e.g., after a Copilot chore PR or another contributor's PR merged into `main`):
+
+```bash
+# 1. Fetch latest remote state
+git fetch origin
+
+# 2. Switch to b-yourname
+git checkout b-yourname
+
+# 3. Replay your new commits on top of latest main
+git rebase origin/main
+
+# 4. Force-push the rebased branch
+git push origin b-yourname --force
+```
+
+> ⚠️ Never use `git merge origin/main` into `b-yourname` — this creates a merge commit on your dev branch and causes the ahead/behind divergence issue.
+
+#### After a Copilot fix sub-PR merges into `b-yourname`
+
+When Copilot raises a fix sub-PR targeting `b-yourname` (e.g., `copilot/fix-xyz` → `b-yourname`) and it is merged, pull the changes into your local branch:
+
+```bash
+git fetch origin
+git checkout b-yourname
+git pull origin b-yourname    # safe here — merge commit already happened on remote
+```
+
 ---
 
 ## 5. Experiment File Conventions
@@ -237,13 +317,30 @@ Organise each lab experiment in its own numbered folder at the root of the repos
 
 ```
 blockchain-lab/
-├── exp-01-simple-storage/      # Experiment 1 — SimpleStorage with Hardhat
+├── Exp-1/                          # Experiment 1 — Local Blockchain with Truffle & Ganache
 │   ├── contracts/
+│   ├── ignition/
+│   ├── migrations/
 │   ├── test/
 │   ├── hardhat.config.js
-│   └── README.md               # Brief experiment overview + run instructions
-├── exp-02-voting/              # Experiment 2 — Voting contract
+│   ├── truffle-config.js
+│   └── README.md                   # Aim, tools used, steps to run, expected output
+├── Exp-2/                          # Experiment 2 — Smart Contracts & Chain Code
+│   └── ...                         # (same structure as Exp-1)
+├── Exp-3/                          # Experiment 3 — Deployment on Sepolia Testnet
 │   └── ...
+├── Exp-4/                          # Experiment 4 — ERC-20 Token with MetaMask
+│   └── ...
+├── Exp-5/                          # Experiment 5 — Hyperledger Fabric Chaincode
+│   └── chaincode/
+├── Exp-6/                          # Experiment 6 — Mini Project (Full-fledged DApp)
+│   ├── src/
+│   ├── script/
+│   ├── scripts/
+│   ├── test/
+│   ├── foundry.toml
+│   ├── hardhat.config.js
+│   └── README.md
 └── docs/
 ```
 

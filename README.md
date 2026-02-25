@@ -1,17 +1,31 @@
 # Blockchain Lab — IT Engineering SEM VIII
 
-> **University of Mumbai · Information Technology · Semester VIII · AY 2025-26**
+> **University of Mumbai · Information Technology · Semester VIII · AY 2025-26**  
+> **Course**: ITL801 — Blockchain Lab
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Educational Use Only](https://img.shields.io/badge/Use-Educational%20Only-blue.svg)](#-educational-use-disclaimer)
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Repository Structure](#repository-structure)
+- [Quick Start](#quick-start)
+- [Lab Experiments](#lab-experiments)
+- [Tech Stack](#tech-stack)
+- [Educational Use Disclaimer](#educational-use-disclaimer)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
 ## Overview
 
-This repository contains all the **practical experiments** for the **Blockchain Technology Lab** course
-prescribed by the **University of Mumbai** for the Bachelor of Engineering (Information Technology)
-programme, Semester VIII.
+This repository contains all the **practical experiments** for the **Blockchain Technology Lab**
+(**ITL801**) course prescribed by the **University of Mumbai** for the Bachelor of Engineering
+(Information Technology) programme, Semester VIII.
 
 The experiments cover core concepts in blockchain development, smart contract programming, and
 decentralized application (DApp) architecture using industry-standard toolchains including
@@ -64,14 +78,14 @@ After installing dependencies, configure your VS Code editor:
 
 ## Lab Experiments
 
-| # | Folder | Aim | LO | Primary Tools |
-|---|--------|-----|----|---------------|
-| 1 | [Exp-1](Exp-1/) | Develop and establish a local Ethereum blockchain using Truffle Suite and Ganache | LO1 | Truffle, Ganache, Hardhat |
-| 2 | [Exp-2](Exp-2/) | Develop and deploy Solidity smart contracts; explore chain code concepts | LO2 | Truffle, Ganache, Hardhat, Web3.js |
-| 3 | [Exp-3](Exp-3/) | Deploy and publish smart contracts on Ethereum Sepolia testnet | LO3 | Hardhat, Alchemy/Infura, MetaMask |
-| 4 | [Exp-4](Exp-4/) | Design and develop a custom ERC-20 cryptocurrency with MetaMask | LO4 | Hardhat, OpenZeppelin, Remix IDE, MetaMask |
-| 5 | [Exp-5](Exp-5/) | Write, package, install, and deploy chain code in Hyperledger Fabric | LO5 | Docker, Hyperledger Fabric v2.5, Node.js v20 |
-| 6 | [Exp-6](Exp-6/) | Mini Project — Full-fledged DApp on Ethereum | LO6 | Foundry, Hardhat 3, Solidity |
+| # | Folder | Aim | LO | Primary Tools | Status |
+|---|--------|-----|----|---------------|--------|
+| 1 | [Exp-1](Exp-1/) | Develop and establish a local Ethereum blockchain using Truffle Suite and Ganache | LO1 | Truffle, Ganache, Hardhat | 🟡 Active |
+| 2 | [Exp-2](Exp-2/) | Develop and deploy Solidity smart contracts; explore chain code concepts | LO2 | Truffle, Ganache, Hardhat, Web3.js | ⬜ Pending |
+| 3 | [Exp-3](Exp-3/) | Deploy and publish smart contracts on Ethereum Sepolia testnet | LO3 | Hardhat, Alchemy/Infura, MetaMask | ⬜ Pending |
+| 4 | [Exp-4](Exp-4/) | Design and develop a custom ERC-20 cryptocurrency with MetaMask | LO4 | Hardhat, OpenZeppelin, Remix IDE, MetaMask | ⬜ Pending |
+| 5 | [Exp-5](Exp-5/) | Write, package, install, and deploy chain code in Hyperledger Fabric | LO5 | Docker, Hyperledger Fabric v2.5, Node.js v20 | ⬜ Pending |
+| 6 | [Exp-6](Exp-6/) | Mini Project — Full-fledged DApp on Ethereum | LO6 | Foundry, Hardhat 3, Solidity | ⬜ Pending |
 
 Refer to **[docs/BLOCKCHAIN_LAB_MANUAL.md](docs/BLOCKCHAIN_LAB_MANUAL.md)** for step-by-step
 aim/objectives, procedure, and expected output for each practical.
