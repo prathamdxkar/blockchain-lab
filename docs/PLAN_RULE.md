@@ -677,12 +677,12 @@ Always specify the language in fenced code blocks for syntax highlighting and AI
 
 If a snippet references a real file in the repository, cite it:
 
-```markdown
+````markdown
 <!-- File: contracts/SimpleStorage.sol — lines 1–8 (skeleton only) -->
 ```solidity
 ...
 ```
-```
+````
 
 ### 4.5 Forbidden Snippet Content
 

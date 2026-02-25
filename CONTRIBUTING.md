@@ -368,7 +368,7 @@ Each experiment folder **must** include these files:
 | `README.md` | Quick-start guide: Aim, Tools Used, Steps to Run, Expected Output | — |
 | `EXP-X_PLAN.md` | Single source of truth for implementing the experiment — phases, file map, CDMs, checklists | `docs/PLAN_RULE.md` |
 | `EXP-X_DOC.md` | College evaluation file: AIM, THEORY, CODE, OUTPUT, LAB OUTCOMES, CONCLUSION | `docs/EXP-X_DOC_RULE.md` |
-| `screenshots/` | Directory containing all output screenshots for the DOC file | `docs/EXP-X_DOC_RULE.md` |
+| `screenshots/` | Directory containing all output screenshots for the DOC file. Add a `.gitkeep` file until real screenshots exist, since Git does not track empty directories. | `docs/EXP-X_DOC_RULE.md` |
 
 ### PLAN File Rules (Summary)
 

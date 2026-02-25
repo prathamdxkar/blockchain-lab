@@ -54,7 +54,7 @@ This file is the **college submission document** for the experiment. It is forma
 
 ## 2. When to Create a DOC File
 
-> ⚠️ **Do NOT start writing a DOC file until ALL of the following are true:**
+> ⚠️ **Creating a stub/template DOC file is acceptable, but do NOT fill in sections with real content until ALL of the following are true:**
 
 - [ ] The experiment is **fully functional** — all contracts compile and deploy without errors.
 - [ ] At least one **successful local deployment** has been executed and verified.
@@ -233,17 +233,17 @@ Arrange snippets in the **logical execution sequence** of the experiment:
 
 If a snippet is extracted from a large file (> 50 lines), cite the line range:
 
-```markdown
+````markdown
 **`contracts/SimpleStorage.sol`** (lines 1–22):
 ```solidity
 // SPDX-License-Identifier: MIT
 ...
 ```
-```
+````
 
 #### Template
 
-```markdown
+````markdown
 ### CODE
 
 **`contracts/SimpleStorage.sol`**:
@@ -267,7 +267,7 @@ module.exports = function (deployer) {
     deployer.deploy(SimpleStorage);
 };
 ```
-```
+````
 
 ---
 
@@ -399,7 +399,7 @@ fig-3.3-etherscan-sepolia-tx.png
 
 **Rules**:
 - Include **only the single LO** mapped to this experiment per `docs/BLOCKCHAIN_LAB_MANUAL.md`.
-- Copy the LO text **verbatim** — do not paraphrase or combine multiple LOs.
+- Copy the LO text from the manual, allowing canonical brand capitalization (e.g., "MetaMask" instead of "Metamask") — do not paraphrase or combine multiple LOs.
 - Do not include Bloom's taxonomy levels in this section — the AIM section implicitly covers scope.
 - The LO mapping per experiment is:
 
@@ -490,7 +490,7 @@ The following edge cases must be handled before the DOC file is considered compl
 
 | # | Edge Case | Rule |
 |---|-----------|------|
-| 1 | **Metamask shows "Pending" transaction** | Do not screenshot pending transactions. Wait for confirmation (1–3 blocks on local). If stuck, reset MetaMask nonce (Settings → Advanced → Reset Account) and re-run. |
+| 1 | **MetaMask shows "Pending" transaction** | Do not screenshot pending transactions. Wait for confirmation (1–3 blocks on local). If stuck, reset MetaMask nonce (Settings → Advanced → Reset Account) and re-run. |
 | 2 | **Etherscan verification not yet propagated** | Wait 2–3 minutes after tx confirmation before screenshotting Etherscan. Unverified contracts show warning — note this in caption if intentional. |
 | 3 | **Terminal output truncated** | If terminal output is longer than one screen, capture multiple screenshots (Fig X.Y, Fig X.Y.1, etc.) or use scroll terminal and paste raw output in a code block. |
 | 4 | **Tool version different from THEORY** | If the actual installed version differs from THEORY section, update THEORY to match the actual version used. Version inconsistency is a deduction point. |

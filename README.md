@@ -69,7 +69,7 @@ blockchain-lab/
 ```
 
 > **Note:** PDF source files (`docs/*.pdf`) are excluded from version control via `.gitignore`.
-> Each experiment folder contains `README.md`, `EXP-X_PLAN.md`, `EXP-X_DOC.md`, and a `screenshots/` directory.
+> Each experiment folder contains `README.md`, `EXP-X_PLAN.md`, `EXP-X_DOC.md`, and a `screenshots/` directory (tracked via `.gitkeep` until real screenshots are added, since Git does not commit empty directories).
 > Authoring standards for PLAN and DOC files are enforced by `docs/PLAN_RULE.md` and `docs/EXP-X_DOC_RULE.md`.
 
 ---
