@@ -56,7 +56,7 @@ To study Deployment and publish smart contracts on Ethereum test network.
 ## LAB OUTCOMES
 
 <!-- TODO: Copy verbatim from docs/BLOCKCHAIN_LAB_MANUAL.md -->
-**LO3** — Write and deploy smart contract using Remix IDE and Metamask.
+**LO3** — Write and deploy smart contract using Remix IDE and MetaMask.
 
 ---
 

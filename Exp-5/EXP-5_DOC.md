@@ -8,7 +8,7 @@
 ## AIM
 
 <!-- TODO: Copy verbatim from docs/BLOCKCHAIN_LAB_MANUAL.md -->
-To study the deployment of chain code in hyper ledger fabric.
+To study the deployment of chain code in Hyperledger Fabric.
 
 ---
 

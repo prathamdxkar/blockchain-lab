@@ -8,7 +8,7 @@
 ## AIM
 
 <!-- TODO: Copy verbatim from docs/BLOCKCHAIN_LAB_MANUAL.md -->
-To Design and develop Blockchain Program using Metamask.
+To Design and develop Blockchain Program using MetaMask.
 
 ---
 
