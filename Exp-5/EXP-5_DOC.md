@@ -7,7 +7,7 @@
 
 ## AIM
 
-<!-- TODO: Copy verbatim from docs/BLOCKCHAIN_LAB_MANUAL.md -->
+<!-- TODO: Copy the AIM from docs/BLOCKCHAIN_LAB_MANUAL.md, allowing canonical brand capitalization (e.g., "Hyperledger Fabric"). -->
 To study the deployment of chain code in Hyperledger Fabric.
 
 ---

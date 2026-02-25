@@ -11,7 +11,7 @@
 <!-- TODO: Write the aim of the specific DApp chosen for the Mini Project.
      Format: "To design and develop a full-fledged decentralised application (DApp)
      for <domain/use-case> using <primary tech stack>." -->
-MINI PROJECT — Develop and test a Full-fledged DApp using Ethereum / Hyperledger.
+To design and develop a full-fledged decentralised application (DApp) using Ethereum / Hyperledger.
 
 ---
 
@@ -21,7 +21,7 @@ MINI PROJECT — Develop and test a Full-fledged DApp using Ethereum / Hyperledg
      Mandatory web search to verify current versions before writing.
      Cover: DApp architecture (frontend + smart contract + blockchain),
      Foundry (version, year, written in Rust, by Paradigm),
-     Hardhat 3 (version, break changes from v2), Solidity (version),
+     Hardhat 3 (version, breaking changes from v2), Solidity (version),
      OpenZeppelin contracts used (version), Anvil local node,
      chosen DApp domain concept (e.g., DEX, NFT, voting, supply chain),
      relevant EIP/ERC standards used. -->
