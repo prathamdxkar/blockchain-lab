@@ -10,14 +10,16 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Repository Structure](#repository-structure)
-- [Quick Start](#quick-start)
-- [Lab Experiments](#lab-experiments)
-- [Tech Stack](#tech-stack)
-- [Educational Use Disclaimer](#educational-use-disclaimer)
-- [Contributing](#contributing)
-- [License](#license)
+- [Blockchain Lab — IT Engineering SEM VIII](#blockchain-lab--it-engineering-sem-viii)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Repository Structure](#repository-structure)
+  - [Quick Start](#quick-start)
+  - [Lab Experiments](#lab-experiments)
+  - [Tech Stack](#tech-stack)
+  - [Educational Use Disclaimer](#educational-use-disclaimer)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ---
 
