@@ -36,6 +36,9 @@ are a classmate, lab partner, or someone forking this for your own coursework.
       - [When `main` has moved ahead and you have pending work on `b-yourname`](#when-main-has-moved-ahead-and-you-have-pending-work-on-b-yourname)
       - [After a Copilot fix sub-PR merges into `b-yourname`](#after-a-copilot-fix-sub-pr-merges-into-b-yourname)
   - [5. Experiment File Conventions](#5-experiment-file-conventions)
+    - [Required Files per Experiment Folder](#required-files-per-experiment-folder)
+    - [PLAN File Rules (Summary)](#plan-file-rules-summary)
+    - [DOC File Rules (Summary)](#doc-file-rules-summary)
   - [6. Smart Contract \& Solidity Standards](#6-smart-contract--solidity-standards)
   - [7. Security Guidelines](#7-security-guidelines)
   - [8. Getting Help](#8-getting-help)
@@ -321,9 +324,12 @@ blockchain-lab/
 │   ├── contracts/
 │   ├── ignition/
 │   ├── migrations/
+│   ├── screenshots/                # Output evidence for EXP-1_DOC.md (screenshots only)
 │   ├── test/
 │   ├── hardhat.config.js
 │   ├── truffle-config.js
+│   ├── EXP-1_PLAN.md               # Implementation blueprint — governed by docs/PLAN_RULE.md
+│   ├── EXP-1_DOC.md                # College evaluation file — governed by docs/EXP-X_DOC_RULE.md
 │   └── README.md                   # Aim, tools used, steps to run, expected output
 ├── Exp-2/                          # Experiment 2 — Smart Contracts & Chain Code
 │   └── ...                         # (same structure as Exp-1)
@@ -332,23 +338,52 @@ blockchain-lab/
 ├── Exp-4/                          # Experiment 4 — ERC-20 Token with MetaMask
 │   └── ...
 ├── Exp-5/                          # Experiment 5 — Hyperledger Fabric Chaincode
-│   └── chaincode/
+│   ├── chaincode/
+│   ├── screenshots/
+│   ├── EXP-5_PLAN.md
+│   └── EXP-5_DOC.md
 ├── Exp-6/                          # Experiment 6 — Mini Project (Full-fledged DApp)
 │   ├── src/
 │   ├── script/
 │   ├── scripts/
 │   ├── test/
+│   ├── screenshots/
 │   ├── foundry.toml
 │   ├── hardhat.config.js
+│   ├── EXP-6_PLAN.md
+│   ├── EXP-6_DOC.md
 │   └── README.md
 └── docs/
+    ├── PLAN_RULE.md                # ← Governs all EXP-*_PLAN.md files
+    ├── EXP-X_DOC_RULE.md          # ← Governs all EXP-*_DOC.md files
+    └── ...
 ```
 
-Each experiment folder **must** include a `README.md` with:
-- **Aim** — one-line objective of the experiment
-- **Tools Used** — e.g., Hardhat, Ganache, Remix
-- **Steps to Run** — commands to compile, deploy, and test
-- **Expected Output** — description or screenshot of the expected result
+### Required Files per Experiment Folder
+
+Each experiment folder **must** include these files:
+
+| File | Purpose | Governed By |
+|------|---------|-------------|
+| `README.md` | Quick-start guide: Aim, Tools Used, Steps to Run, Expected Output | — |
+| `EXP-X_PLAN.md` | Single source of truth for implementing the experiment — phases, file map, CDMs, checklists | `docs/PLAN_RULE.md` |
+| `EXP-X_DOC.md` | College evaluation file: AIM, THEORY, CODE, OUTPUT, LAB OUTCOMES, CONCLUSION | `docs/EXP-X_DOC_RULE.md` |
+| `screenshots/` | Directory containing all output screenshots for the DOC file. Add a `.gitkeep` file until real screenshots exist, since Git does not track empty directories. | `docs/EXP-X_DOC_RULE.md` |
+
+### PLAN File Rules (Summary)
+
+- Every `EXP-X_PLAN.md` must begin on **line 1** with `FILE_LENGTH_TAG=soft|medium|hard`.
+- Must contain all 9 mandatory sections: §0 Snapshot → §9 Git Commit Checkpoints.
+- No full code implementations — logical flow hints, structural skeletons ≤ 15 lines only.
+- Full specification: **[docs/PLAN_RULE.md](docs/PLAN_RULE.md)**
+
+### DOC File Rules (Summary)
+
+- `EXP-X_DOC.md` must only be written **after the experiment is fully functional**.
+- Mandatory sections in order: AIM → THEORY → IMPLEMENTATION (CODE + OUTPUT) → LAB OUTCOMES → CONCLUSION.
+- Minimum 3, maximum 8 code snippets. All screenshots real (no placeholders).
+- Screenshots saved as `fig-X.Y-description.png` in `Exp-X/screenshots/`.
+- Full specification: **[docs/EXP-X_DOC_RULE.md](docs/EXP-X_DOC_RULE.md)**
 
 ---
 
