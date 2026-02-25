@@ -1,0 +1,25 @@
+{
+  "overrides": [
+    {
+      "files": "*.sol",
+      "options": {
+        "parser": "solidity-parse",
+        "printWidth": 120,
+        "tabWidth": 4,
+        "useTabs": false,
+        "singleQuote": false,
+        "bracketSpacing": true
+      }
+    },
+    {
+      "files": ["*.js", "*.ts"],
+      "options": {
+        "printWidth": 100,
+        "tabWidth": 2,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "semi": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "exp-4",
+  "version": "1.0.0",
+  "description": "Exp-4: Design and Develop Blockchain Program using MetaMask + ERC-20 Token (LO4)",
+  "private": true,
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "node": "npx hardhat node",
+    "deploy:local": "npx hardhat ignition deploy ./ignition/modules/Deploy.js --network localhost",
+    "deploy:ganache": "npx hardhat ignition deploy ./ignition/modules/Deploy.js --network ganache",
+    "deploy:sepolia": "npx hardhat ignition deploy ./ignition/modules/Deploy.js --network sepolia",
+    "verify:sepolia": "npx hardhat verify --network sepolia",
+    "truffle:compile": "truffle compile",
+    "truffle:migrate": "truffle migrate --network development",
+    "truffle:test": "truffle test",
+    "format": "prettier --write \"**/*.{sol,js,json}\""
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "erc20",
+    "token",
+    "metamask",
+    "openzeppelin"
+  ],
+  "author": "Pratham Diwadkar",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^17.3.1",
+    "hardhat": "^2.28.6",
+    "prettier": "^3.8.1",
+    "prettier-plugin-solidity": "^2.2.1"
+  }
+}
