@@ -38,16 +38,28 @@ decentralized application (DApp) architecture using industry-standard toolchains
 ```
 blockchain-lab/
 ├── Exp-1/                            # Experiment 1 — Local Blockchain with Truffle & Ganache
+│   ├── contracts/
+│   ├── screenshots/                  # Output screenshots for EXP-1_DOC.md
+│   ├── EXP-1_PLAN.md                 # Implementation blueprint (see docs/PLAN_RULE.md)
+│   ├── EXP-1_DOC.md                  # College evaluation file (see docs/EXP-X_DOC_RULE.md)
+│   └── README.md
 ├── Exp-2/                            # Experiment 2 — Smart Contract & Chain Code Development
+│   └── ...                           # (same structure as Exp-1)
 ├── Exp-3/                            # Experiment 3 — Deployment on Ethereum Test Network
+│   └── ...
 ├── Exp-4/                            # Experiment 4 — Cryptocurrency with MetaMask (ERC-20)
+│   └── ...
 ├── Exp-5/                            # Experiment 5 — Chain Code in Hyperledger Fabric
+│   └── ...
 ├── Exp-6/                            # Experiment 6 — Mini Project (Full-fledged DApp)
+│   └── ...
 ├── docs/
 │   ├── BLOCKCHAIN_LAB_MANUAL.md     # Full lab manual in Markdown
 │   ├── BLOCKCHAIN_LAB_SYLLABUS.md   # Mumbai University syllabus in Markdown
 │   ├── DEPENDENCY.md                # Dependency setup guide (Windows + WSL/Linux)
-│   └── EXTENSION.md                 # VS Code extension list for Web3 Development
+│   ├── EXTENSION.md                 # VS Code extension list for Web3 Development
+│   ├── PLAN_RULE.md                 # Standard for authoring EXP-*_PLAN.md files
+│   └── EXP-X_DOC_RULE.md           # Standard for authoring EXP-*_DOC.md evaluation files
 ├── .gitignore                        # Web3-specific gitignore
 ├── CONTRIBUTING.md                   # Contribution guidelines, branch & commit conventions
 ├── LICENSE                           # MIT License
@@ -55,7 +67,8 @@ blockchain-lab/
 ```
 
 > **Note:** PDF source files (`docs/*.pdf`) are excluded from version control via `.gitignore`.
-> Each experiment folder contains its own `README.md` with aim, tools, steps to run, and expected output.
+> Each experiment folder contains `README.md`, `EXP-X_PLAN.md`, `EXP-X_DOC.md`, and a `screenshots/` directory.
+> Authoring standards for PLAN and DOC files are enforced by `docs/PLAN_RULE.md` and `docs/EXP-X_DOC_RULE.md`.
 
 ---
 
