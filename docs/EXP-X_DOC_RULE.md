@@ -25,6 +25,7 @@
       - [Snippet Requirements](#snippet-requirements)
       - [Snippet Selection Order](#snippet-selection-order)
       - [Line Range Citation](#line-range-citation)
+    - [7.2 OUTPUT Subsection](#72-output-subsection)
   - [8. LAB OUTCOMES Section Rules](#8-lab-outcomes-section-rules)
   - [9. CONCLUSION Section Rules](#9-conclusion-section-rules)
   - [10. Screenshot \& Figure Standards](#10-screenshot--figure-standards)
@@ -34,9 +35,6 @@
     - [10.4 Block Explorer Citations](#104-block-explorer-citations)
   - [11. Edge Cases \& Quality Gates](#11-edge-cases--quality-gates)
   - [12. Full DOC File Template](#12-full-doc-file-template)
-    - [OUTPUT](#output)
-  - [LAB OUTCOMES](#lab-outcomes)
-  - [CONCLUSION](#conclusion)
 
 ---
 
@@ -409,7 +407,7 @@ fig-3.3-etherscan-sepolia-tx.png
 |-----------|------------|
 | Exp-1 | LO1 — Develop and test smart contract on local Blockchain |
 | Exp-2 | LO2 — Develop and test smart contract on Ethereum test networks |
-| Exp-3 | LO3 — Write and deploy smart contract using Remix IDE and Metamask |
+| Exp-3 | LO3 — Write and deploy smart contract using Remix IDE and MetaMask |
 | Exp-4 | LO4 — Design and develop Cryptocurrency |
 | Exp-5 | LO5 — Write and deploy chain code in Hyperledger Fabric |
 | Exp-6 | LO6 — Develop and test a Full-fledged DApp using Ethereum/Hyperledger |
