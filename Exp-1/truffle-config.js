@@ -9,15 +9,15 @@
 module.exports = {
   networks: {
     development: {
-      host: "127.0.0.1",
-      port: 7545,         // Ganache Desktop default
+      host: '127.0.0.1',
+      port: 7545, // Ganache Desktop default
       // port: 8545,      // Uncomment for Ganache CLI
-      network_id: "*",
+      network_id: '*',
     },
     ganacheCli: {
-      host: "127.0.0.1",
-      port: 8545,         // Ganache CLI default
-      network_id: "*",
+      host: '127.0.0.1',
+      port: 8545, // Ganache CLI default
+      network_id: '*',
     },
   },
 
@@ -27,7 +27,7 @@ module.exports = {
 
   compilers: {
     solc: {
-      version: "0.8.21",
+      version: '0.8.21',
       settings: {
         optimizer: {
           enabled: false,

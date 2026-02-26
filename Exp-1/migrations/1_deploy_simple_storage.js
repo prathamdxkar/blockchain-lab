@@ -11,7 +11,7 @@
  * Blockchain Lab · ITL801 · University of Mumbai · BE IT SEM VIII · AY 2025-26
  */
 
-const SimpleStorage = artifacts.require("SimpleStorage");
+const SimpleStorage = artifacts.require('SimpleStorage');
 
 module.exports = function (deployer) {
   deployer.deploy(SimpleStorage);

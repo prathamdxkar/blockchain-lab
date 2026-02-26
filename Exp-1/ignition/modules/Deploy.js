@@ -13,10 +13,10 @@
  * Blockchain Lab · ITL801 · University of Mumbai · BE IT SEM VIII · AY 2025-26
  */
 
-const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
+const { buildModule } = require('@nomicfoundation/hardhat-ignition/modules');
 
-module.exports = buildModule("SimpleStorageModule", (m) => {
-  const simpleStorage = m.contract("SimpleStorage");
+module.exports = buildModule('SimpleStorageModule', (m) => {
+  const simpleStorage = m.contract('SimpleStorage');
 
   return { simpleStorage };
 });

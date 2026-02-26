@@ -17,10 +17,10 @@
  * Blockchain Lab · ITL801 · University of Mumbai · BE IT SEM VIII · AY 2025-26
  */
 
-const { ethers } = require("hardhat");
-const { expect } = require("chai");
+const { ethers } = require('hardhat');
+const { expect } = require('chai');
 
-describe("SimpleStorage", function () {
+describe('SimpleStorage', function () {
   /**
    * @type {import("ethers").Contract}
    * Fresh SimpleStorage instance deployed before each test.
@@ -42,7 +42,7 @@ describe("SimpleStorage", function () {
     [owner] = await ethers.getSigners();
 
     // Deploy a fresh instance of SimpleStorage for every test case.
-    const SimpleStorageFactory = await ethers.getContractFactory("SimpleStorage");
+    const SimpleStorageFactory = await ethers.getContractFactory('SimpleStorage');
     simpleStorage = await SimpleStorageFactory.deploy();
     await simpleStorage.waitForDeployment();
   });
@@ -51,7 +51,7 @@ describe("SimpleStorage", function () {
   // Test 1 — Initial State
   // ---------------------------------------------------------------------------
 
-  it("get() returns 0 on a fresh deploy (default uint256 value)", async function () {
+  it('get() returns 0 on a fresh deploy (default uint256 value)', async function () {
     const initialValue = await simpleStorage.get();
     expect(initialValue).to.equal(0n); // uint256 default is 0; ethers v6 returns BigInt
   });
@@ -60,7 +60,7 @@ describe("SimpleStorage", function () {
   // Test 2 — set() → get() round-trip
   // ---------------------------------------------------------------------------
 
-  it("set(42) stores 42 and get() returns 42", async function () {
+  it('set(42) stores 42 and get() returns 42', async function () {
     // Call set() with value 42
     const tx = await simpleStorage.set(42);
     await tx.wait();
@@ -76,7 +76,7 @@ describe("SimpleStorage", function () {
 
   it("set(0) reverts with 'SimpleStorage: value must be greater than 0'", async function () {
     await expect(simpleStorage.set(0)).to.be.revertedWith(
-      "SimpleStorage: value must be greater than 0"
+      'SimpleStorage: value must be greater than 0'
     );
   });
 
@@ -84,12 +84,12 @@ describe("SimpleStorage", function () {
   // Test 4 — Event emission
   // ---------------------------------------------------------------------------
 
-  it("set() emits DataStored event with correct value and sender", async function () {
+  it('set() emits DataStored event with correct value and sender', async function () {
     const valueToStore = 99n;
 
     // The emit assertion checks event name, value argument, and sender argument.
     await expect(simpleStorage.connect(owner).set(valueToStore))
-      .to.emit(simpleStorage, "DataStored")
+      .to.emit(simpleStorage, 'DataStored')
       .withArgs(valueToStore, owner.address);
   });
 });
