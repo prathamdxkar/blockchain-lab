@@ -2,7 +2,7 @@
  * Truffle Configuration — Exp-1
  * University of Mumbai · IT Engineering SEM VIII · AY 2025-26
  *
- * Connect to Ganache CLI on port 7545 (launch with: ganache --port 7545 --chainId 1337).
+ * Connect to Ganache CLI on port 7545 (launch with: ganache --port 7545 --chain.chainId 1337).
  * For an alternate Ganache CLI instance, use the ganacheCli network on port 8545.
  */
 

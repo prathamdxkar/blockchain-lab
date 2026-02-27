@@ -50,7 +50,7 @@ node --version    # v22.x.x
 ### 1. Start Ganache CLI
 
 ```bash
-ganache --port 7545 --chainId 1337 --accounts 10 --defaultBalanceEther 1000
+ganache --port 7545 --chain.chainId 1337 --accounts 10 --defaultBalanceEther 1000
 ```
 
 ### 2. Compile Smart Contract (Truffle)
