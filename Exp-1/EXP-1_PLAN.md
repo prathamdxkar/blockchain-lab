@@ -637,8 +637,10 @@ rm -rf ignition/deployments/
 npm run deploy:ganache
 ```
 
-> 📌 `ignition/deployments/` is listed in `.gitignore` — deleting it is safe and does not
-> affect source code.
+> 📌 `ignition/deployments/` only contains Hardhat Ignition cached deployment state — deleting
+> it is safe and does not affect source code. Make sure your `.gitignore` ignores experiment
+> subdirectory caches as well (for example, by adding `**/ignition/deployments/`) so
+> `Exp-1/ignition/deployments/` is not committed.
 
 ---
 
