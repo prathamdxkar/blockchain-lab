@@ -32,7 +32,7 @@ To Develop and Establish smart contract and chain code.
 - Chaincode is the Hyperledger Fabric equivalent of an Ethereum smart contract — business logic packaged as a Node.js, Go, or Java module deployed on Fabric peers.
 - Current Hyperledger Fabric version: **v2.5.x** (LTS, actively maintained by the Linux Foundation as of February 2026).
 - Lifecycle: `package` → `install` → `approve` → `commit` → `invoke`/`query` via the `peer chaincode` CLI.
-- In this experiment, a Node.js skeleton chaincode (`chaincode/javascript/lib/voting.js`) mirrors the on-chain `Voting` contract logic in a permissioned-ledger context; full Fabric deployment is covered in Exp-5.
+- In this experiment, a Node.js skeleton chaincode (`chaincode/javascript/lib/Voting.js`) mirrors the on-chain `Voting` contract logic in a permissioned-ledger context; full Fabric deployment is covered in Exp-5.
 
 **Truffle Suite**:
 - Installed version: **v5.11.5** (core: 5.11.5). End-to-end Ethereum development framework by ConsenSys.

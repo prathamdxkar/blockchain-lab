@@ -37,7 +37,7 @@ const { Contract } = require('fabric-contract-api');
  * World State key conventions:
  *   - Candidate record : "CANDIDATE_{candidateId}"
  *     Value (JSON)      : { "id": string, "name": string, "voteCount": number }
- *   - Voter record      : "VOTER_{voterMSPId}_{voterCN}"
+ *   - Voter record      : `VOTER_${clientID}` where clientID = ctx.clientIdentity.getID()
  *     Value (string)    : "1" (presence indicates the voter has cast a vote)
  */
 class VotingChaincode extends Contract {

@@ -15,7 +15,7 @@ FILE_LENGTH_TAG=soft
     - [Network Awareness](#network-awareness)
   - [1. Pre-Flight Checklist](#1-pre-flight-checklist)
     - [1.1 Node \& nvm](#11-node--nvm)
-    - [1.2 Global CLI Tools (under Node 22 context)](#12-global-cli-tools-under-node-22-context)
+    - [1.2 Global CLI Tools (under Node 24 context)](#12-global-cli-tools-under-node-24-context)
     - [1.3 Ports](#13-ports)
     - [1.4 Environment Files](#14-environment-files)
     - [1.5 Dependencies](#15-dependencies)
@@ -31,7 +31,7 @@ FILE_LENGTH_TAG=soft
   - [4. Crucial Development Moments (CDM)](#4-crucial-development-moments-cdm)
       - [CDM-1 — Ganache CLI Port Mismatch _(Phase 1 / Phase 4)_](#cdm-1--ganache-cli-port-mismatch-phase-1--phase-4)
       - [CDM-2 — Double-Vote Guard in castVote _(Phase 2)_](#cdm-2--double-vote-guard-in-castvote-phase-2)
-      - [CDM-3 — Node 22 ExperimentalWarning with Truffle _(Phase 4 / Phase 6)_](#cdm-3--node-22-experimentalwarning-with-truffle-phase-4--phase-6)
+      - [CDM-3 — Node ExperimentalWarning with Truffle _(Phase 4 / Phase 6)_](#cdm-3--node-experimentalwarning-with-truffle-phase-4--phase-6)
       - [CDM-4 — ABI / Artifact Staleness _(Phase 2 → Phase 4, Phase 2 → Phase 5)_](#cdm-4--abi--artifact-staleness-phase-2--phase-4-phase-2--phase-5)
       - [CDM-5 — Constructor Args in Hardhat Ignition _(Phase 4)_](#cdm-5--constructor-args-in-hardhat-ignition-phase-4)
   - [5. Manual Execution Tasks](#5-manual-execution-tasks)
@@ -48,7 +48,7 @@ FILE_LENGTH_TAG=soft
   - [7. Known Issues \& Fixes](#7-known-issues--fixes)
     - [Issue-1 — `truffle: command not found`](#issue-1--truffle-command-not-found)
     - [Issue-2 — `ganache-cli: command not found`](#issue-2--ganache-cli-command-not-found)
-    - [Issue-3 — Node 22 ExperimentalWarning Flood](#issue-3--node-22-experimentalwarning-flood)
+    - [Issue-3 — Node ExperimentalWarning Flood](#issue-3--node-experimentalwarning-flood)
     - [Issue-4 — Hardhat Ignition "Module already deployed"](#issue-4--hardhat-ignition-module-already-deployed)
   - [8. Security Reminders](#8-security-reminders)
   - [9. Git Commit Checkpoints](#9-git-commit-checkpoints)
@@ -62,10 +62,10 @@ FILE_LENGTH_TAG=soft
 | Experiment | Exp-2 — To Develop and Establish smart contract and chain code |
 | Lab Outcome | LO2 — Develop and test smart contract on Ethereum test networks |
 | Bloom's Taxonomy Level | L3, L4 |
-| Primary Tool(s) | Truffle v5.11.5, Ganache CLI v7.9.2 |
+| Primary Tool(s) | Truffle v5.11.5, Ganache CLI v7.9.1 |
 | Supporting Tool(s) | Hardhat v2.28.6, Hardhat Ignition, Web3.js (via Truffle console) |
 | Solidity Version | 0.8.21 |
-| Node Version | v22.x.x (nvm alias: modern) — set via `.nvmrc = 22` |
+| Node Version | v24.x.x — set via `.nvmrc = 24` |
 | Local Network(s) | Ganache CLI (port 7545 / Chain ID 1337), Hardhat in-process (31337) |
 | Testnet | N/A |
 | Prerequisite Experiments | Exp-1 (Truffle + Ganache toolchain established) |
@@ -101,13 +101,13 @@ Run these checks **before starting Phase 1**. Do not proceed if any item fails.
 ### 1.1 Node & nvm
 
 - [ ] `nvm --version` confirms nvm ≥ 0.40.x is installed
-- [ ] `nvm use 22` succeeds — outputs `Now using node v22.x.x (npm v10.x.x)`
-- [ ] `node --version` inside `Exp-2/` outputs `v22.x.x` (`.nvmrc = 22` respected)
+- [ ] `nvm use 24` succeeds — outputs `Now using node v24.x.x (npm v10.x.x)`
+- [ ] `node --version` inside `Exp-2/` outputs `v24.x.x` (`.nvmrc = 24` respected)
 
-### 1.2 Global CLI Tools (under Node 22 context)
+### 1.2 Global CLI Tools (under Node 24 context)
 
-- [ ] `truffle version` → `Truffle v5.11.5 (core: 5.11.5)`, Node `v22.x.x`
-- [ ] `ganache --version` → `ganache v7.9.x`
+- [ ] `truffle version` → `Truffle v5.11.5 (core: 5.11.5)`, Node `v24.x.x`
+- [ ] `ganache --version` → `ganache v7.9.1`
 - [ ] `npx hardhat --version` → `2.28.x`
 
 ### 1.3 Ports
@@ -179,15 +179,15 @@ new files. This is a verification pass — no config changes are expected.
 
 <!-- TOOL: SHELL -->
 **Logical Flow**:
-1. From `Exp-2/`, run `nvm use 22` — confirm Node `v22.x.x`.
-2. Run `truffle version` — confirm `Truffle v5.11.5`, Node `v22.x.x`.
-3. Run `ganache --version` — confirm `ganache v7.9.x`.
+1. From `Exp-2/`, run `nvm use 24` — confirm Node `v24.x.x`.
+2. Run `truffle version` — confirm `Truffle v5.11.5`, Node `v24.x.x`.
+3. Run `ganache --version` — confirm `ganache v7.9.1`.
 4. Run `npx hardhat --version` — confirm `2.28.x`.
 5. Open `hardhat.config.js` — verify `solidity.version = "0.8.21"` and the `ganache` network
    block: `url: "http://127.0.0.1:7545"` and `chainId: 1337`.
 6. Open `truffle-config.js` — verify `development` block: `host: "127.0.0.1"`, `port: 7545`,
    `network_id: "*"`.
-7. Open `.nvmrc` — confirm it contains exactly `22`.
+7. Open `.nvmrc` — confirm it contains exactly `24`.
 8. Run `lsof -i :7545` — confirm port is free before starting Ganache CLI in Phase 4.
 9. Run `npm install` from `Exp-2/` if `node_modules/` is absent.
 
@@ -512,7 +512,7 @@ network.
    call and one `getCandidates` or `getWinner` response.
 10. Exit the console: `.exit`.
 
-> ⚠️ See **CDM-3** (Node 22 ExperimentalWarning) — the console session may show warning output
+> ⚠️ See **CDM-3** (ExperimentalWarning) — the console session may show warning output
 > on startup. This does not affect contract interaction.
 
 **Exit Criteria**: Console session exits cleanly. `castVote(0)` produces a transaction object.
@@ -614,14 +614,14 @@ increment, or forgetting the check entirely because the contract compiles fine w
 
 ---
 
-#### CDM-3 — Node 22 ExperimentalWarning with Truffle _(Phase 4 / Phase 6)_
+#### CDM-3 — Node ExperimentalWarning with Truffle _(Phase 4 / Phase 6)_
 
-**Risk**: Running Truffle under Node v22 floods the terminal with
+**Risk**: Running Truffle under Node v22+ (including v24.x.x) floods the terminal with
 `ExperimentalWarning: VM Modules is an experimental feature` messages, which may be mistaken for
 compilation or migration errors.
 
 **Why it matters**: These warnings are **not errors** — Truffle v5.11.5 is compatible with
-Node v22.x.x. However, if ignored, they can obscure real error messages in the same terminal.
+Node v24.x.x. However, if ignored, they can obscure real error messages in the same terminal.
 
 **What to do**:
 - Recognise the warning pattern:
@@ -784,7 +784,7 @@ These steps must be performed **by hand** by the developer. They cannot be autom
     .exit
     ```
 
-> ⚠️ See **CDM-3** — Node 22 may flood the console session with `ExperimentalWarning` messages.
+> ⚠️ See **CDM-3** — Truffle may flood the console session with `ExperimentalWarning` messages.
 > Suppress with `NODE_OPTIONS=--no-warnings truffle console --network development` if needed.
 
 ---
@@ -855,13 +855,13 @@ not installed globally under the active Node version.
 
 **Fix**:
 ```bash
-nvm use 22
+nvm use 24
 npm install -g truffle
 truffle version
 ```
 
 **Reference**: Truffle requires a global install per Node version context in nvm. Always run
-`nvm use 22` before installing or running Truffle CLI commands.
+`nvm use 24` before installing or running Truffle CLI commands.
 
 ---
 
@@ -884,15 +884,15 @@ should be replaced with `ganache`.
 
 ---
 
-### Issue-3 — Node 22 ExperimentalWarning Flood
+### Issue-3 — Node ExperimentalWarning Flood
 
 **Symptom**: Truffle commands flood the terminal with:
 ```
 (node:XXXXX) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
 ```
 
-**Root Cause**: Truffle v5.11.5 uses `--experimental-vm-modules` internally under Node 22. This
-is expected behaviour — it does **not** indicate a failure.
+**Root Cause**: Truffle v5.11.5 uses `--experimental-vm-modules` internally under Node v22+
+(including v24.x.x). This is expected behaviour — it does **not** indicate a failure.
 
 **Fix** (if warnings obscure output):
 ```bash
@@ -901,7 +901,7 @@ NODE_OPTIONS=--no-warnings truffle console --network development
 NODE_OPTIONS=--no-warnings truffle test
 ```
 
-**Reference**: See [CDM-3](#cdm-3--node-22-experimentalwarning-with-truffle-phase-4--phase-6)
+**Reference**: See [CDM-3](#cdm-3--node-experimentalwarning-with-truffle-phase-4--phase-6)
 for full context. Exit code `0` confirms success regardless of warning noise.
 
 ---

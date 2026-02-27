@@ -155,8 +155,7 @@ contract Voting {
      *         voteCount. If two candidates are tied, the one with the lower index wins
      *         (first-registered precedence — consistent with a simple linear scan).
      *
-     *         Does not revert if the candidates array is empty — returns a zero-value
-     *         Candidate struct in that edge case.
+     *         Reverts with "No candidates registered" if the candidates array is empty.
      * @return winner  The Candidate struct (name + voteCount) of the leading candidate.
      */
     function getWinner() external view returns (Candidate memory winner) {

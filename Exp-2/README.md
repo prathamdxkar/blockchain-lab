@@ -43,7 +43,8 @@ Exp-2/
 ### Prerequisites
 
 ```bash
-truffle version   # Truffle v5.11.5 / Ganache v7.9.1 / Solidity 0.8.21
+truffle version   # Truffle v5.11.5 / Solidity 0.8.21
+ganache --version # ganache v7.9.1
 node --version    # v24.x.x
 ```
 
