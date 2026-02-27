@@ -63,6 +63,7 @@ Exp-6/lib/
 # Hardhat Ignition
 # -----------------------------------------------------------------------------
 ignition/deployments/
+**/ignition/deployments/
 
 # -----------------------------------------------------------------------------
 # Remix IDE (Remixd local file access)
