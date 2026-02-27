@@ -13,27 +13,28 @@ chain code concepts using JavaScript/Go for understanding permissioned blockchai
 
 | Tool | Version | Purpose |
 |------|---------|---------|
-| Node.js | v22.x.x | JavaScript runtime |
+| Node.js | v24.13.1 | JavaScript runtime |
 | Solidity | ^0.8.21 | Smart contract language |
 | Truffle | v5.11.5 | Compile, migrate, test smart contracts |
-| Ganache CLI | v7.9.x | Local Ethereum blockchain |
-| Hardhat | v2.28.x | Alternative dev environment + testing |
-| Web3.js | v1.10.x | Ethereum JavaScript API |
+| Ganache CLI | v7.9.1 | Local Ethereum blockchain (port 7545) |
+| Hardhat | v2.28.6 | Alternative dev environment + testing |
+| Web3.js | v1.10.0 | Ethereum JavaScript API |
 
 ## Project Structure
 
 ```
 Exp-2/
-├── contracts/              # Solidity smart contracts (.sol)
+├── contracts/              # Solidity smart contracts — Voting.sol
+├── chaincode/
+│   └── javascript/         # Hyperledger Fabric chaincode skeleton (Node.js)
 ├── ignition/
-│   └── modules/            # Hardhat Ignition deployment scripts
-├── migrations/             # Truffle migration scripts
-├── test/                   # Test files (.js)
-├── .env.example            # Environment variable template
-├── .nvmrc                  # Node version (22)
-├── .prettierrc             # Code formatter config
-├── hardhat.config.js       # Hardhat configuration
-├── truffle-config.js       # Truffle configuration
+│   └── modules/            # Hardhat Ignition deployment module — Deploy.js
+├── migrations/             # Truffle migration scripts — 1_deploy_voting.js
+├── scripts/                # truffle exec interaction scripts
+├── screenshots/            # Lab evidence screenshots (fig-2.Y-name.png)
+├── test/                   # Mocha + Chai test suite — Voting.test.js
+├── hardhat.config.js       # Hardhat configuration (solc 0.8.21, ganache networks)
+├── truffle-config.js       # Truffle configuration (development @ port 7545)
 └── package.json            # npm manifest with devDependencies
 ```
 
@@ -42,22 +43,22 @@ Exp-2/
 ### Prerequisites
 
 ```bash
-truffle version   # Truffle v5.x.x
-ganache --version # ganache v7.x.x
-node --version    # v22.x.x
+truffle version   # Truffle v5.11.5 / Solidity 0.8.21
+ganache --version # ganache v7.9.1
+node --version    # v24.x.x
 ```
 
 ### 1. Start Ganache CLI
 
 ```bash
-ganache --port 7545 --chainId 1337 --accounts 10 --defaultBalanceEther 1000
+ganache --port 7545 --chain.chainId 1337 --accounts 10 --defaultBalanceEther 1000
 ```
 
 ### 2. Compile Smart Contract (Truffle)
 
 ```bash
 cd Exp-2
-nvm use 22
+nvm use 24
 truffle compile
 ```
 
@@ -76,23 +77,39 @@ truffle console --network development
 Inside the console:
 
 ```javascript
-// Get deployed contract instance
-const instance = await MyContract.deployed()
+// Get deployed Voting contract instance
+const voting = await Voting.deployed()
 
-// Call a view function
-await instance.get()
+// Read all candidates (initial state)
+await voting.getCandidates()
+// Returns: [ { name: 'Alice', voteCount: 0n }, { name: 'Bob', voteCount: 0n }, ... ]
 
-// Send a transaction
-await instance.set(42)
+// Cast a vote for Alice (index 0) from the first account
+await voting.castVote(0)
 
-// Verify the updated state
-await instance.get()
+// Verify vote count
+const candidates = await voting.getCandidates()
+candidates[0].voteCount.toString()   // '1'
+
+// Get the current winner
+const winner = await voting.getWinner()
+winner.name   // 'Alice'
+```
+
+Or run the fully-automated interaction script:
+
+```bash
+NODE_OPTIONS=--no-warnings truffle exec scripts/console-interaction.js --network development
 ```
 
 ### 5. Run Tests
 
 ```bash
-truffle test
+# Preferred — Hardhat in-process EVM (16 test cases, no Ganache required)
+npx hardhat test
+
+# Alternative — Truffle test runner (requires Ganache to be running)
+npx truffle test --network development
 ```
 
 ### 6. Alternatively — Using Hardhat
@@ -112,43 +129,55 @@ All contracts in this experiment must follow:
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.21;
 
-contract MyContract {
-    // State variables
-    // Events
-    // Modifiers
-    // Constructor
-    // External / Public functions
-    // Internal / Private functions
+contract Voting {
+    // State variables  (Candidate[] public candidates, mapping hasVoted, address owner)
+    // Events           (CandidateAdded, VoteCast)
+    // Modifiers        (onlyOwner)
+    // Constructor      (string[] memory candidateNames)
+    // External / Public functions  (castVote, addCandidate, getCandidates, getWinner)
 }
 ```
 
 ## Expected Output
 
-After `truffle migrate`:
+After `truffle migrate --reset --network development`:
 
 ```
 Compiling your contracts...
 ===========================
-> Compiling ./contracts/MyContract.sol
+> Compiling ./contracts/Voting.sol
 > Artifacts written to ./build/contracts
-> Compiled successfully using solc 0.8.21
+> Compiled successfully using:
+   - solc: 0.8.21+commit.d9974bed.Emscripten.clang
 
 Starting migrations...
 ======================
 > Network name:    'development'
 
-1_deploy.js
-===========
-   Deploying 'MyContract'
-   ----------------------
-   > transaction hash:    0x...
-   > contract address:    0x...
-   > block number:        1
-   > gas used:            xxxxxx
+1_deploy_voting.js
+==================
+   Deploying 'Voting'
+   ------------------
+   > transaction hash:    0xe8951b9dee5a856d4d89aa99135af3b616667c0a2e5c5da73c2f2cb3af0f08b7
+   > contract address:    0x061F7EA4ca91203b6c79076B6b21B1914D6b28D7
+   > block number:        5
+   > gas used:            1258877
 
 Summary
 =======
 > Total deployments:   1
+> Final cost:          0.003806493114635341 ETH
+```
+
+After `npx hardhat test`:
+
+```
+  Voting
+    ✔ TC-1:  getCandidates() returns 3 candidates with voteCount 0
+    ✔ TC-2:  castVote(0) increments Alice voteCount from 0 to 1
+    ✔ TC-3:  double vote reverts with 'Already voted'
+    ...
+  16 passing (933ms)
 ```
 
 ## Notes

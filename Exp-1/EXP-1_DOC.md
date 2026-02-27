@@ -37,9 +37,10 @@ To Develop and Establish local Blockchain using Truffle.
   (automine mode), and JSON-RPC + WebSocket endpoints on `localhost`.
 - Does not run a real consensus algorithm — transactions are mined immediately, making it ideal
   for rapid local development without tying up real ETH or waiting for network confirmations.
-- Ganache v7 flag syntax: `--chain.chainId` (primary) and `--chainId` (backward-compatible alias;
-  both map to the same chain ID and the step-by-step commands below use `--chainId 1337` for brevity),
-  `--wallet.totalAccounts`, `--wallet.defaultBalance`, and `--port` for custom RPC port selection.
+- Ganache v7 flag syntax uses dot-notation namespacing: `--chain.chainId` (the only valid flag
+  for setting chain ID — the old `--chainId` shorthand was removed in v7 and produces
+  `Unknown argument: chainId` if used), `--wallet.totalAccounts`, `--wallet.defaultBalance`,
+  and `--port` for custom RPC port selection.
 
 **Ethereum & Solidity**:
 

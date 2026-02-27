@@ -1,0 +1,25 @@
+{
+  "name": "voting-chaincode",
+  "version": "1.0.0",
+  "description": "Hyperledger Fabric chaincode skeleton for the Voting contract (Exp-2 conceptual reference)",
+  "main": "index.js",
+  "scripts": {
+    "start": "fabric-chaincode-node start"
+  },
+  "keywords": [
+    "hyperledger",
+    "fabric",
+    "chaincode",
+    "voting",
+    "blockchain"
+  ],
+  "author": "Pratham Diwadkar",
+  "license": "MIT",
+  "dependencies": {
+    "fabric-contract-api": "^2.4.0",
+    "fabric-shim": "^2.4.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

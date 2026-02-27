@@ -402,7 +402,7 @@ running, even when it is.
 **What to do**:
 - Always launch Ganache CLI with the explicit port flag:
   ```bash
-  ganache --port 7545 --chainId 1337 --accounts 10 --defaultBalanceEther 1000
+  ganache --port 7545 --chain.chainId 1337 --accounts 10 --defaultBalanceEther 1000
   ```
 - Verify Ganache is on the correct port: `lsof -i :7545` should show the `ganache` process.
 - Verify `truffle-config.js` `development.port` is `7545` before migrating.
@@ -498,7 +498,7 @@ These steps must be performed **by hand** by the developer. They cannot be autom
 2. Navigate to any directory (Ganache CLI is a global tool, not project-specific).
 3. Run:
    ```bash
-   ganache --port 7545 --chainId 1337 --accounts 10 --defaultBalanceEther 1000
+   ganache --port 7545 --chain.chainId 1337 --accounts 10 --defaultBalanceEther 1000
    ```
 4. Confirm the output shows `listening on 127.0.0.1:7545` and lists 10 accounts, each with
    `(1000 ETH)` balance and a corresponding private key.
