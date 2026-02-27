@@ -28,13 +28,13 @@
  * Blockchain Lab · ITL801 · University of Mumbai · BE IT SEM VIII · AY 2025-26
  */
 
-const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
+const { buildModule } = require('@nomicfoundation/hardhat-ignition/modules');
 
-module.exports = buildModule("VotingModule", (m) => {
+module.exports = buildModule('VotingModule', (m) => {
   // Deploy the Voting contract with an initial candidates array.
   // The outer array wraps all constructor arguments; the inner array is the
   // string[] candidateNames parameter (see CDM-5 in EXP-2_PLAN.md).
-  const voting = m.contract("Voting", [["Alice", "Bob", "Charlie"]]);
+  const voting = m.contract('Voting', [['Alice', 'Bob', 'Charlie']]);
 
   return { voting };
 });

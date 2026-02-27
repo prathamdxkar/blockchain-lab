@@ -19,10 +19,10 @@
  * Blockchain Lab · ITL801 · University of Mumbai · BE IT SEM VIII · AY 2025-26
  */
 
-const Voting = artifacts.require("Voting");
+const Voting = artifacts.require('Voting');
 
 module.exports = function (deployer) {
   // Deploy Voting with initial candidate list — matches the constructor signature:
   //   constructor(string[] memory candidateNames)
-  deployer.deploy(Voting, ["Alice", "Bob", "Charlie"]);
+  deployer.deploy(Voting, ['Alice', 'Bob', 'Charlie']);
 };

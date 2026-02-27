@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Hyperledger Fabric Chaincode Entry Point — Voting
@@ -16,6 +16,6 @@
  * Blockchain Lab · ITL801 · University of Mumbai · BE IT SEM VIII · AY 2025-26
  */
 
-const VotingChaincode = require("./lib/Voting");
+const VotingChaincode = require('./lib/Voting');
 
 module.exports.contracts = [VotingChaincode];

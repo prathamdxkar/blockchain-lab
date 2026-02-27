@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * @file  Voting.js — Hyperledger Fabric Chaincode (Conceptual Skeleton)
@@ -24,7 +24,7 @@
  * Blockchain Lab · ITL801 · University of Mumbai · BE IT SEM VIII · AY 2025-26
  */
 
-const { Contract } = require("fabric-contract-api");
+const { Contract } = require('fabric-contract-api');
 
 /**
  * VotingChaincode
@@ -54,9 +54,9 @@ class VotingChaincode extends Contract {
    */
   async InitLedger(ctx) {
     const initialCandidates = [
-      { id: "0", name: "Alice", voteCount: 0 },
-      { id: "1", name: "Bob", voteCount: 0 },
-      { id: "2", name: "Charlie", voteCount: 0 },
+      { id: '0', name: 'Alice', voteCount: 0 },
+      { id: '1', name: 'Bob', voteCount: 0 },
+      { id: '2', name: 'Charlie', voteCount: 0 },
     ];
 
     for (const candidate of initialCandidates) {
@@ -102,13 +102,11 @@ class VotingChaincode extends Contract {
     await ctx.stub.putState(candidateKey, Buffer.from(JSON.stringify(candidate)));
 
     // EFFECT 2 — Mark identity as having voted
-    await ctx.stub.putState(voterKey, Buffer.from("1"));
+    await ctx.stub.putState(voterKey, Buffer.from('1'));
 
     // INTERACTION — Emit a chaincode event (analogous to Solidity event VoteCast)
-    const eventPayload = Buffer.from(
-      JSON.stringify({ candidateId, voter: clientID })
-    );
-    ctx.stub.setEvent("VoteCast", eventPayload);
+    const eventPayload = Buffer.from(JSON.stringify({ candidateId, voter: clientID }));
+    ctx.stub.setEvent('VoteCast', eventPayload);
   }
 
   /**
@@ -126,11 +124,11 @@ class VotingChaincode extends Contract {
     const results = [];
 
     // Iterate over all keys in the range "CANDIDATE_" (prefix scan)
-    const iterator = await ctx.stub.getStateByRange("CANDIDATE_", "CANDIDATE_~");
+    const iterator = await ctx.stub.getStateByRange('CANDIDATE_', 'CANDIDATE_~');
 
     let result = await iterator.next();
     while (!result.done) {
-      const candidateJSON = result.value.value.toString("utf8");
+      const candidateJSON = result.value.value.toString('utf8');
       results.push(JSON.parse(candidateJSON));
       result = await iterator.next();
     }
@@ -153,7 +151,7 @@ class VotingChaincode extends Contract {
     const candidates = JSON.parse(resultsJSON);
 
     if (candidates.length === 0) {
-      throw new Error("No candidates registered");
+      throw new Error('No candidates registered');
     }
 
     let winner = candidates[0];
