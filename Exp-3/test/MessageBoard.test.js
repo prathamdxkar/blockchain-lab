@@ -13,12 +13,12 @@
 //   7. getTotalCount — increments across multiple senders
 //   8. getMessages — returns empty array for address with no posts
 
-"use strict";
+'use strict';
 
-const { expect }  = require("chai");
-const { ethers }  = require("hardhat");
+const { expect } = require('chai');
+const { ethers } = require('hardhat');
 
-describe("MessageBoard", function () {
+describe('MessageBoard', function () {
 
   // ─── Shared State ─────────────────────────────────────────────────────────
 
@@ -37,16 +37,16 @@ describe("MessageBoard", function () {
   beforeEach(async function () {
     [owner, addr1, addr2] = await ethers.getSigners();
 
-    const MessageBoardFactory = await ethers.getContractFactory("MessageBoard");
+    const MessageBoardFactory = await ethers.getContractFactory('MessageBoard');
     board = await MessageBoardFactory.deploy();
     await board.waitForDeployment();
   });
 
   // ─── Test: Constructor ────────────────────────────────────────────────────
 
-  describe("Constructor", function () {
+  describe('Constructor', function () {
 
-    it("1. initialises messageCount at zero", async function () {
+    it('1. initialises messageCount at zero', async function () {
       expect(await board.messageCount()).to.equal(0n);
     });
 
@@ -54,25 +54,25 @@ describe("MessageBoard", function () {
 
   // ─── Test: postMessage ────────────────────────────────────────────────────
 
-  describe("postMessage()", function () {
+  describe('postMessage()', function () {
 
-    it("2. emits MessagePosted event with correct sender and content", async function () {
-      const content = "Hello, Sepolia!";
+    it('2. emits MessagePosted event with correct sender and content', async function () {
+      const content = 'Hello, Sepolia!';
       const tx = board.connect(owner).postMessage(content);
 
       await expect(tx)
-        .to.emit(board, "MessagePosted")
+        .to.emit(board, 'MessagePosted')
         .withArgs(owner.address, content, await getTimestampOf(tx));
     });
 
-    it("3. reverts when content is an empty string", async function () {
+    it('3. reverts when content is an empty string', async function () {
       await expect(
-        board.connect(owner).postMessage("")
-      ).to.be.revertedWith("MessageBoard: content cannot be empty");
+        board.connect(owner).postMessage('')
+      ).to.be.revertedWith('MessageBoard: content cannot be empty');
     });
 
-    it("4. increments messageCount by 1 after a single post", async function () {
-      await board.connect(owner).postMessage("First message");
+    it('4. increments messageCount by 1 after a single post', async function () {
+      await board.connect(owner).postMessage('First message');
       expect(await board.messageCount()).to.equal(1n);
     });
 
@@ -80,10 +80,10 @@ describe("MessageBoard", function () {
 
   // ─── Test: getMessages ────────────────────────────────────────────────────
 
-  describe("getMessages()", function () {
+  describe('getMessages()', function () {
 
-    it("5. returns array of length 1 with correct content after one post", async function () {
-      const content = "My first on-chain message";
+    it('5. returns array of length 1 with correct content after one post', async function () {
+      const content = 'My first on-chain message';
       await board.connect(addr1).postMessage(content);
 
       const messages = await board.getMessages(addr1.address);
@@ -92,55 +92,55 @@ describe("MessageBoard", function () {
       expect(messages[0].sender).to.equal(addr1.address);
     });
 
-    it("6. returns two messages in order after two posts by the same address", async function () {
-      await board.connect(addr1).postMessage("Message one");
-      await board.connect(addr1).postMessage("Message two");
+    it('6. returns two messages in order after two posts by the same address', async function () {
+      await board.connect(addr1).postMessage('Message one');
+      await board.connect(addr1).postMessage('Message two');
 
       const messages = await board.getMessages(addr1.address);
       expect(messages.length).to.equal(2);
-      expect(messages[0].content).to.equal("Message one");
-      expect(messages[1].content).to.equal("Message two");
+      expect(messages[0].content).to.equal('Message one');
+      expect(messages[1].content).to.equal('Message two');
     });
 
-    it("7. returns empty array for an address that has never posted", async function () {
+    it('7. returns empty array for an address that has never posted', async function () {
       const messages = await board.getMessages(addr2.address);
       expect(messages.length).to.equal(0);
     });
 
-    it("8. does not mix messages between different senders", async function () {
-      await board.connect(addr1).postMessage("From addr1");
-      await board.connect(addr2).postMessage("From addr2");
+    it('8. does not mix messages between different senders', async function () {
+      await board.connect(addr1).postMessage('From addr1');
+      await board.connect(addr2).postMessage('From addr2');
 
       const msgsAddr1 = await board.getMessages(addr1.address);
       const msgsAddr2 = await board.getMessages(addr2.address);
 
       expect(msgsAddr1.length).to.equal(1);
-      expect(msgsAddr1[0].content).to.equal("From addr1");
+      expect(msgsAddr1[0].content).to.equal('From addr1');
       expect(msgsAddr2.length).to.equal(1);
-      expect(msgsAddr2[0].content).to.equal("From addr2");
+      expect(msgsAddr2[0].content).to.equal('From addr2');
     });
 
   });
 
   // ─── Test: getTotalCount ──────────────────────────────────────────────────
 
-  describe("getTotalCount()", function () {
+  describe('getTotalCount()', function () {
 
-    it("9. returns zero before any posts", async function () {
+    it('9. returns zero before any posts', async function () {
       expect(await board.getTotalCount()).to.equal(0n);
     });
 
-    it("10. increments correctly across multiple senders", async function () {
-      await board.connect(owner).postMessage("Owner post");
-      await board.connect(addr1).postMessage("addr1 post");
-      await board.connect(addr2).postMessage("addr2 post");
+    it('10. increments correctly across multiple senders', async function () {
+      await board.connect(owner).postMessage('Owner post');
+      await board.connect(addr1).postMessage('addr1 post');
+      await board.connect(addr2).postMessage('addr2 post');
 
       expect(await board.getTotalCount()).to.equal(3n);
     });
 
-    it("11. messageCount and getTotalCount stay in sync", async function () {
-      await board.connect(owner).postMessage("post A");
-      await board.connect(owner).postMessage("post B");
+    it('11. messageCount and getTotalCount stay in sync', async function () {
+      await board.connect(owner).postMessage('post A');
+      await board.connect(owner).postMessage('post B');
 
       const count = await board.messageCount();
       const total = await board.getTotalCount();
@@ -152,10 +152,10 @@ describe("MessageBoard", function () {
 
   // ─── Test: Timestamp ─────────────────────────────────────────────────────
 
-  describe("Message timestamp", function () {
+  describe('Message timestamp', function () {
 
-    it("12. timestamp on stored message is non-zero", async function () {
-      await board.connect(owner).postMessage("Timestamp check");
+    it('12. timestamp on stored message is non-zero', async function () {
+      await board.connect(owner).postMessage('Timestamp check');
       const messages = await board.getMessages(owner.address);
       expect(messages[0].timestamp).to.be.greaterThan(0n);
     });
