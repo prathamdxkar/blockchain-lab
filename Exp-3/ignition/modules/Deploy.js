@@ -19,9 +19,9 @@
 //   MessageBoardModule#MessageBoard - 0x<ADDRESS>
 // Save this address for Phase 7 (Etherscan verify) and Phase 8 (Web3.js interact).
 
-"use strict";
+'use strict';
 
-const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
+const { buildModule } = require('@nomicfoundation/hardhat-ignition/modules');
 
 /**
  * @module MessageBoardModule
@@ -31,9 +31,9 @@ const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
  * Do NOT rename it without deleting ignition/deployments/chain-<ID>/ first
  * (see CDM-3 in EXP-3_PLAN.md for details).
  */
-module.exports = buildModule("MessageBoardModule", (m) => {
+module.exports = buildModule('MessageBoardModule', (m) => {
   // Deploy MessageBoard — no constructor arguments required.
-  const messageboard = m.contract("MessageBoard");
+  const messageboard = m.contract('MessageBoard');
 
   // Return the contract reference so Hardhat Ignition logs the address.
   return { messageboard };
