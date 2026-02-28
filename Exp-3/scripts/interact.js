@@ -72,7 +72,10 @@ async function main() {
   );
 
   // 2. Load deployer account from private key and add to wallet.
-  const account = web3.eth.accounts.privateKeyToAccount(process.env.PRIVATE_KEY);
+  // Web3.js v4 requires a 0x-prefixed key. Normalise regardless of .env format.
+  const rawKey = process.env.PRIVATE_KEY;
+  const normalizedKey = rawKey.startsWith("0x") ? rawKey : `0x${rawKey}`;
+  const account = web3.eth.accounts.privateKeyToAccount(normalizedKey);
   web3.eth.accounts.wallet.add(account);
   const deployerAddress = account.address;
 
