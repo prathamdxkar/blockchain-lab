@@ -185,7 +185,7 @@ describe("MessageBoard", function () {
 
 ---
 
-**`hardhat.config.js`** (Solidity compiler settings + Sepolia network configuration):
+**`hardhat.config.js`** (Solidity compiler settings + Sepolia network configuration; lines 1–62):
 
 ```javascript
 require("@nomicfoundation/hardhat-toolbox");
